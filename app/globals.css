@@ -71,8 +71,54 @@ html {
   .font-grotesk {
     font-family: var(--font-space-grotesk), sans-serif;
   }
+
+  .font-hand {
+    font-family: var(--font-caveat), cursive;
+  }
+
+  .font-serif {
+    font-family: var(--font-fraunces), serif;
+    font-variation-settings: 'SOFT' 100;
+  }
   .writing-vertical {
     writing-mode: vertical-rl;
     text-orientation: mixed;
+  }
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translate3d(0, calc(var(--snow-tile) * -1), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes snow-sway {
+  from {
+    transform: translate3d(calc(var(--snow-sway) * -1), 0, 0);
+  }
+  to {
+    transform: translate3d(var(--snow-sway), 0, 0);
+  }
+}
+
+@keyframes swing {
+  from {
+    transform: rotate(calc(var(--swing) * -1));
+  }
+  to {
+    transform: rotate(var(--swing));
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
   }
 }
