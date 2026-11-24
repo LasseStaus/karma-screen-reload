@@ -4,7 +4,7 @@ import WhiteSpaceCard from '@/animations/whitespace/WhiteSpaceCard';
 
 export const whitespace = defineAnimation({
   id: 'whitespace',
-  name: 'Whitespace (WIP)',
+  name: 'Whitespace',
   timeline: whitespaceTimeline,
   hold: 6,
   Component: WhiteSpaceCard,

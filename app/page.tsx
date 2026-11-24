@@ -11,13 +11,13 @@ import { useEffect, useState } from 'react';
 export default function Page() {
   const [source, setSource] = useState<DataSource | null>(null);
   const { nominees } = useNominees(source);
-  const [animationId, setAnimationId] = useState(DEFAULT_ANIMATION_ID);
+  const [animationIds, setAnimationIds] = useState([DEFAULT_ANIMATION_ID]);
   const [showFps, setShowFps] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const requested = params.get('animation');
-    if (requested) setAnimationId(requested);
+    if (requested) setAnimationIds(requested.split(',').filter(Boolean));
     setShowFps(params.has('fps'));
     setSource(params.get('data') === 'test' ? 'test' : 'live');
   }, []);
@@ -34,7 +34,7 @@ export default function Page() {
           </div>
         )}
         {nominees && nominees.length > 0 && (
-          <Slideshow animation={getAnimation(animationId)} nominees={nominees} />
+          <Slideshow animations={animationIds.map(getAnimation)} nominees={nominees} />
         )}
       </TvCanvas>
     </main>
