@@ -39,14 +39,15 @@ export function SlidePlayer({ slideKey, ...props }: SlidePlayerProps) {
 }
 
 type SlideshowProps = {
-  animation: KarmaAnimation;
+  animations: KarmaAnimation[];
   nominees: KarmaNominee[];
 };
 
-export default function Slideshow({ animation, nominees }: SlideshowProps) {
+export default function Slideshow({ animations, nominees }: SlideshowProps) {
   const [step, setStep] = useState(0);
   const ready = usePreloadedImages(nominees.map((n) => n.avatar_url));
   const nominee = nominees[step % nominees.length];
+  const animation = animations[step % animations.length];
 
   if (!ready) return null;
 

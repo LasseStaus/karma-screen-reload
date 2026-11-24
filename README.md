@@ -7,8 +7,8 @@ yarn install
 yarn dev
 ```
 
-- `/` – selve skærmen. `?animation=<id>` vælger en anden animation end standarden, `?data=test` bruger testdata.
-- `/playground` – vælg animation, data (test/live) og nominee, replay og se timelinen.
+- `/` – selve skærmen. `?animation=<id>` vælger en anden animation end standarden, og `?animation=<id>,<id>` skifter mellem flere, `?data=test` bruger testdata.
+- `/preview` – forhåndsvisning: vælg et eller flere kort, data (test/live) og nominee, replay og se timelinen.
 
 ## Skærmen
 
@@ -25,7 +25,7 @@ En animation består af:
 - `timeline(nominee)` – navngivne trin bygget med `timeline()` fra `lib/motion.ts`
 - `hold` – sekunder slidet står stille efter sidste trin
 
-Eksperimenter ligger i `animations/lab/` (én fil per card) og vises under "Lab" i playgroundens
+Eksperimenter ligger i `animations/lab/` (én fil per card) og vises under "Lab" i forhåndsvisningens
 dropdown. Når en af dem skal i prod, flyttes den til sin egen mappe og sættes som
 `DEFAULT_ANIMATION_ID`.
 
